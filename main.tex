@@ -1,0 +1,93 @@
+%& -job-name="[SD] Zadania v0.27"
+\documentclass[a4paper,10pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{amssymb}
+\usepackage[polish]{babel}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{times}
+\usepackage{anysize}
+\usepackage{enumerate}
+\usepackage{color}
+\usepackage{circuitikz}
+\usepackage{multicol}
+\tikzset{>=latex}
+\usetikzlibrary{patterns}
+
+\usepackage{siunitx}
+\usepackage{mathrsfs}
+\usepackage{cancel}
+
+
+\marginsize{1cm}{1cm}{1cm}{1cm}
+\definecolor{darkgray}{gray}{0.3}
+\definecolor{darkblue}{RGB}{0,0,180}
+\definecolor{red}{RGB}{255,0,0}
+\definecolor{lightgray}{gray}{0.6}
+\sloppy 
+
+%dla zakreskowania ukośnymi liniami
+\pgfdeclarepatternformonly[\LineSpace]{my north east lines}{\pgfqpoint{-1pt}{-1pt}}{\pgfqpoint{\LineSpace}{\LineSpace}}{\pgfqpoint{\LineSpace}{\LineSpace}}%
+{
+    \pgfsetlinewidth{0.4pt}
+    \pgfpathmoveto{\pgfqpoint{0pt}{0pt}}
+    \pgfpathlineto{\pgfqpoint{\LineSpace + 0.1pt}{\LineSpace + 0.1pt}}
+    \pgfusepath{stroke}
+}
+
+\newdimen\LineSpace
+\tikzset{
+    line space/.code={\LineSpace=#1},
+    line space=3pt
+}
+%end
+
+\newcommand*\circled[1]{\tikz[baseline=(char.base)]{
+            \node[shape=circle,draw,inner sep=1pt] (char) {\small{#1}};}}
+
+\newcommand*\lineh{\noindent\makebox[\linewidth]{\rule{\paperwidth}{0.4pt}}}
+
+\begin{document}
+\noindent https://github.com/Jock69pl/SystemyDynamiczne.git  - oryginalni autorzy\\
+\noindent https://github.com/Jock69pl/SystemyDynamiczne.git  - wersja rozwojowa\\
+\\
+Jeśli masz wolnego czasu trochę i chcesz pomóc doślij jakieś rozwiązanie.\\
+Bardzo potrzebne są korekty, napewno jest tu sporo błędów.\\
+Potrzebni są też komentatorzy, chodzi o całkowicie łopatologiczny komentarz typu "tu liczymy delte bo..."\\
+\\
+Z tego przedmiotu jest egzamin, więc warto to zrobić
+
+
+\include{week1}
+\include{week2}
+\include{week3}
+\include{week4}
+\include{week5} 
+
+\pagebreak
+\section*{Autorzy:}
+
+\subsection*{Skład:} 
+Jacek Pietras\\
+Grzegorz Tokarz\\
+Jakub Hyła
+
+\subsection*{Rozwiązania:} 
+Magdalena Warzesia\\
+Ania Szarawara\\
+irytek102\\
+Gniewomir\\
+Jacek Pietras\\
+Grzegorz Tokarz\\
+Magdalena Jaroszyńska
+
+\subsection*{Komentarze:} 
+\end{document}
+
+
+%  \left[\begin{array}{cc}     &\\&    \end{array}\right]
+%  \left[\begin{array}{c}     \\    \end{array}\right]
+
+
+
