@@ -75,6 +75,39 @@ $G(s)=\left[\begin{array}{cc}0&1\end{array}\right]
 $
 
 %###################                 4.1.3              #################################%
+\pagebreak
+\subsection*{Zadanie 4.1.3} 
+	Układ jest opisany równaniami stanu w postaci\\\\
+\begin{gather*}
+\begin{cases}
+\dot{x}(t) = \mathbf{A}x(t) + \mathbf{B}u(t) \\
+y(t) = \mathbf{C}x(t)
+\end{cases}
+\\
+\mathbf{A} = \begin{bmatrix} 2 & -1 \\ 2 & -5 \end{bmatrix},
+\mathbf{B} = \begin{bmatrix} 2 \\ 2 \end{bmatrix},
+\mathbf{C} = \begin{bmatrix} 0 & 1 \end{bmatrix}
+\end{gather*}
+
+Znaleźć transmitancję operatorową tego układu przy założeniu zerowych warunków początkowych $x(0)=0$\\
+\lineh	
+
+Dla $x(0) = 0$ mamy:
+\[ G(s) = \mathbf{C} (s\mathbf{I} - \mathbf{A})^{-1} \mathbf{B} \]
+
+\begin{align*}
+G(s) & = \mathbf{C} \left(\begin{bmatrix} s & 0 \\ 0 & s \end{bmatrix} - \begin{bmatrix} 2 & -1 \\ 2 & -5 \end{bmatrix}\right)^{-1} \mathbf{B}=\\
+& = \mathbf{C} \left(\begin{bmatrix} s-2 & 1 \\ -2 & s+5 \end{bmatrix}\right)^{-1} \mathbf{B} = \\
+& = \mathbf{C} \left(\frac{1}{(s+5)(s-2)+2}\right) \begin{bmatrix} s+5 & 2 \\ -1 & s-2 \end{bmatrix}^\mathrm{T} \mathbf{B} = \\
+& = \left(\frac{1}{s^2+3s-8}\right) \mathbf{C} \begin{bmatrix} s+5 & -1 \\ 2 & s-2 \end{bmatrix} \mathbf{B} = \\
+& = \left(\frac{1}{s^2+3s-8}\right) \begin{bmatrix} 0 & 1 \end{bmatrix}\begin{bmatrix} s+5 & -1 \\ 2 & s-2 \end{bmatrix} \mathbf{B} = \\
+& = \left(\frac{1}{s^2+3s-8}\right) \begin{bmatrix} 2 & s-2 \end{bmatrix}\begin{bmatrix} 2 \\ 2 \end{bmatrix} = \\
+& = \left(\frac{1}{s^2+3s-8}\right) (4+2s-4) = \frac{2s}{s^2+3s-8}
+\end{align*}
+
+Odp: $G(s) = \frac{2s}{s^2+3s-8}$.
+
+%###################                 4.1.3              #################################%
 %\pagebreak
 %\subsection*{Zadanie 4.1.3} {\color{darkgray}
 %	Układ jest opisany równaniami stanu w postaci\\\\
@@ -91,7 +124,7 @@ $
 %###################                 4.2.1              #################################%
 \pagebreak
 \subsection*{Zadanie 4.2.1} {\color{darkgray}
-	Mając dana transmitancje $G(s)=\frac{5}{s+3}$ okreslić amplitudę sygnału wyjściowego, jesli na wejście podano:\\
+	Mając dana transmitancje $G(s)=\frac{5}{s+3}$ określić amplitudę sygnału wyjściowego, jesli na wejście podano:\\
 	a) $2\sin(4t+2 \pi)$\\
 	b) $-\sin(t)$\\
 	c) $0.1\cos(4t+\frac\pi 6)$\\
@@ -149,15 +182,67 @@ $A_y=\frac{\sqrt{(2-\omega)(2+\omega)}}{\omega^2+4} \cdot (-2)$\\
 $A_y=\frac{\sqrt{(2-\omega)(2+\omega)}}{\omega^2+4} \cdot (0.1)$\\
 }
 
+
 %###################                 4.2.3              #################################%
-%\pagebreak
-%\subsection*{Zadanie 4.2.3} {\color{darkgray}
-%	Mając dana transmitancje $G(s)=\frac{30}{s+2}$ okreslić amplitudę sygnału wyjściowego, jesli na wejście podano:\\
-%	a) $\sin(t+\frac{2 \pi}{3})$\\
-%	b) $0.5\sin(2t)$\\
-%	c) $8\cos(3t+\frac{2\pi}{3})$\\
-%}\lineh
-%\\\\
+\pagebreak
+\subsection*{Zadanie 4.2.3} {\color{darkgray}
+	Mając dana transmitancje $G(s)=\frac{30}{s+2}$ określić amplitudę sygnału wyjściowego, jeśli na wejście podano:\\
+}\lineh
+\\\\
+\begin{gather*}
+u(t) = A_u \cdot \sin{(\omega t+\phi_u)}\text{ - wejście} \\
+A_u \text{ - amplituda wejścia} \\
+\phi_u \text{ - faza wejścia} \\
+y(t) = A_y \cdot \sin{(\omega t+\phi_y)}\text{ - wyjście} \\
+A_y = A(\omega) \cdot A_u \text{ - amplituda wyjścia} \\
+\phi_y \text{ - faza wyjścia} \\
+A(\omega) = |G(j\omega)| \\
+G(s) = \frac{300}{s+30}
+\end{gather*}
+
+a)
+\begin{align*}
+u(t) &= -2\sin{(5t)} \\
+A_u &= -2 \\
+\omega &= 5 \\
+A(\omega) &= A(5) = |G(5j)| = \left| \frac{300}{5j+30} \right| 
+= \left| \frac{60}{6+j} \cdot \frac{6-j}{6-j} \right|
+= \left| \frac{60}{37} \cdot (6-j) \right| = \\
+&= \frac{60}{37} \cdot |6-j| = \frac{60}{37} \cdot \sqrt{6^2+(-1)^2} 
+= \frac{60 \cdot \sqrt{37}}{37} \\
+A_y &= A(\omega) \cdot A_u = \frac{60 \cdot \sqrt{37}}{37} \cdot -2
+= \boxed{ \frac{-120 \cdot \sqrt{37}}{37} }
+\end{align*}
+
+b)
+\begin{align*}
+u(t) &= 5\sin{\left( 2t+\frac{\pi}{2} \right)} \\
+A_u &= 5 \\
+\omega &= 2 \\
+A(\omega) &= A(2) = |G(2j)| = \left| \frac{300}{2j+30} \right| 
+= \left| \frac{150}{15+j} \cdot \frac{15-j}{15-j} \right|
+= \left| \frac{150}{256} \cdot (15-j) \right| = \\
+&= \frac{75}{128} \cdot |15-j| = \frac{75}{128} \cdot \sqrt{15^2+(-1)^2} 
+= \frac{75 \cdot 16}{128} = \frac{75}{8} \\
+A_y &= A(\omega) \cdot A_u = \frac{75}{8} \cdot 5
+= \boxed{ \frac{375}{8} }
+\end{align*}
+
+c)
+\begin{align*}
+u(t) &= \cos{\left( 3t+\frac{\pi}{3} \right)} = \sin{\left( 3t+\frac{\pi}{3}+\frac{\pi}{2} \right)}
+= \sin{\left( 3t+\frac{5\pi}{6} \right)} \\
+A_u &= 1 \\
+\omega &= 3 \\
+A(\omega) &= A(3) = |G(3j)| = \left| \frac{300}{3j+30} \right| 
+= \left| \frac{100}{10+j} \cdot \frac{10-j}{10-j} \right|
+= \left| \frac{100}{101} \cdot (10-j) \right| = \\
+&= \frac{100}{101} \cdot |10-j| = \frac{100}{101} \cdot \sqrt{10^2+(-1)^2} 
+= \frac{100 \cdot \sqrt{101}}{101} \\
+A_y &= A(\omega) \cdot A_u = \frac{100 \cdot \sqrt{101}}{101} \cdot 1
+= \boxed{ \frac{100 \cdot \sqrt{101}}{101} }
+\end{align*}
+
 
 %###################                 4.3.1              #################################%
 \pagebreak
@@ -185,15 +270,58 @@ $\mathcal{L}\{a\}=a\frac 1 s$\\
 $\mathcal{L}\{ae^{bt}\}=a\frac {1}{s-b}$\\
 
 %###################                 4.3.2              #################################%
-%\pagebreak
-%\subsection*{Zadanie 4.3.2} {\color{darkgray}
-%	Za pomocą transmitancji znaleźć odpowiedź układu 1 na skok jednostkowy, czyli funkcję postaci:\\
-%	$u(t)=\begin{cases}0,t<0 \\ 1, t\geqslant 0 \end{cases}$\\
-%	Zakladamy, że $x(0)=0$\\
-%	$\dot{x}(t)=5x(t)-3u(t)$\\
-%	$y(t)=x(t)$\\
-%}\lineh
+\pagebreak
+\subsection*{Zadanie 4.3.2} {\color{darkgray}
+	Za pomocą transmitancji znaleźć odpowiedź układu 1 na skok jednostkowy, czyli funkcję postaci:\\
+	$u(t)=\begin{cases}0,t<0 \\ 1, t\geqslant 0 \end{cases}$\\
+	Zakładamy, że $x(0)=0$\\
+	
+	$
+\begin{cases}
+\dot{x}(t) = -2x(t) + u(t) \\
+y(t) = x(t)
+\end{cases}$ \\
+}\lineh
 %\\\\
+\begin{gather*}
+u(t) = \begin{cases}
+0 & \text{dla } t < 0 \\
+1 & \text{dla } t \geqslant  0
+\end{cases} \\
+\begin{cases}
+\dot{x}(t) = -2x(t) + u(t) \\
+y(t) = x(t)
+\end{cases} \\
+\mathbf{A} = -2, \mathbf{B} = 1, \mathbf{C} = 1
+\end{gather*}
+
+Dla $x(0) = 0$ mamy:
+\[ G(s) = \mathbf{C} (s\mathbf{I} - \mathbf{A})^{-1} \mathbf{B} \]
+
+\begin{equation*}
+\begin{aligned}
+& G(s) = 1 \cdot [s - (-2)]^{-1} \cdot 1 = \frac{1}{s+2} \\
+& U(s) = \mathscr{L}\{u(t)\} = \frac{1}{s} \\
+& Y(s) = G(s) \cdot U(s) = \frac{1}{s+2} \cdot \frac{1}{s} \\
+& \frac{1}{(s+2)s} = \left. \frac{A}{s+2} + \frac{B}{s} \right| \cdot (s+2)s \\
+& 1 = A \cdot s + B \cdot s + 2B = s(A+B) + 2B \\
+& \begin{cases}
+A+B = 0 \\
+2B = 1
+\end{cases} \\
+& \begin{cases}
+B = \frac12 \\
+A = -\frac12
+\end{cases} \\
+& Y(s) = \frac{-\frac12}{s+2} + \frac{\frac12}{s} \\
+& y(t) = \mathscr{L}^{-1}\{Y(s)\}
+& \begin{array}{rl}
+	& \mathscr{L}^{-1}\{\frac{a}{s}\} = a \\
+	& \mathscr{L}^{-1}\{\frac{a}{s-b}\} = ae^{bt}
+\end{array} \\
+& y(t) = \mathscr{L}^{-1}\left\{ \frac{-\frac12}{s+2} + \frac{\frac12}{s} \right\} = \boxed{ -\frac12e^{-2t} + \frac12 }
+\end{aligned}
+\end{equation*}
 
 
 %###################                 4.4.1              #################################%
@@ -208,15 +336,33 @@ $A(\omega)=|\frac{20}{j \frac 9 2 + 10}|=|\frac{20(10-\frac 9 2 j)}{100+\frac{81
 $A_y=A(\omega)\cdot 2$\\
 $\frac{A_y}{A_u}=A(\omega)$\\
 \\
-Amplituda sygnału wejśicowego będzie ok. 1.82 razy większa niż wejściowego\\
+Amplituda sygnału wejściowego będzie ok. 1.82 razy większa niż wejściowego\\
 
 %###################                 4.4.2              #################################%
-%\pagebreak
-%\subsection*{Zadanie 4.4.2} {\color{darkgray}
-%	Na układ o transmitancji operatorowej $G(s)=\frac{400}{s+30}$ podano sygnał sinusoidalny $5\sin(2t+\frac \pi 3)$. Obliczyć, jak zmieni się amplituda sygnału wyjściowego.\\
-%}\lineh
+\pagebreak
+\subsection*{Zadanie 4.4.2}
+ {\color{darkgray}
+	Na układ o transmitancji operatorowej $G(s) = \frac{50}{s+10}$ podano sygnał sinusoidalny $3\sin{(4t+\pi)}$. Obliczyć, jak zmieni się amplituda sygnału wyjściowego.\\
+}\lineh
 %\\\\
+\begin{gather*}
+u(t) = A_u \cdot \sin{(\omega t+\phi_u)}\text{ - wejście} \\
+A_u \text{ - amplituda wejścia} \\
+y(t) = A_y \cdot \sin{(\omega t+\phi_y)}\text{ - wyjście} \\
+A_y = A(\omega) \cdot A_u \text{ - amplituda wyjścia} \\
+\frac{A_y}{A_u} = A(\omega) \text{ - zmiana amplitudy} \\
+A(\omega) = |G(j\omega)| \\
+G(s) = \frac{50}{s+10}, u(t) = 3\sin{(4t+\pi)}
+\end{gather*}
 
+\begin{align*}
+\omega & = 4 \\
+A(\omega) & = A(4) = |G(4j)| = \left| \frac{50}{4j+10} \right| = \left| \frac{25}{5+2j} \cdot \frac{5-2j}{5-2j} \right| = \\
+& = \left| \frac{25}{29} \cdot (5-2j) \right| = \frac{25}{29} \cdot |5-2j| = \frac{25}{29} \cdot \sqrt{5^2+(-2)^2} \\
+A(\omega) & = \boxed{ \frac{25 \cdot \sqrt{29}}{29} } \approx 4.62
+\end{align*}
+
+Amplituda wyjściowa będzie większa od wejściowej o ok. 4.62 razy.
 
 %###################                 4.5.1              #################################%
 \pagebreak
@@ -256,13 +402,27 @@ $G(j\omega)=\frac{1}{j\omega+1}=\frac{1-j\omega}{1+\omega^2}=\boxed{\frac{1}{1+\
 
 
 %###################                 4.5.2              #################################%
-%\pagebreak
-%\subsection*{Zadanie 4.5.2} {\color{darkgray}
-%	Narysowac charakterystyki Nyquista dla układu opisanego transmitancja operatorowa:\\
-%	$G(s)=\frac{2s}{3s^2+3s}$\\
-%	Podac wzór na transmitancje widmowa tego układu (w postaci rozbicia na czesc urojona i rzeczywistą).\\
-%}\lineh
-%\\\\
+\pagebreak
+\subsection*{Zadanie 4.5.2}
+{\color{darkgray}
+Odpowiedź skokowa pewnego układu ma postać $ h(t) = \mathbf{1}(t-1)$
+
+Znaleźć transmitancję tego układu.
+
+}\lineh
+\\\\
+\begin{gather*}
+y(t) = h(t) = \mathbf{1}(t-1) \\
+u(t) = \mathbf{1}(t) \\
+Y(s) = G(s) \cdot U(s) \\
+\mathscr{L}\{ \mathbf{1}(t+a) \} = \frac{1+as}{s^2}
+\end{gather*}
+
+\begin{align*}
+U(s) & = \mathscr{L}\{ u(t) \} = \mathscr{L}\{ \mathbf{1}(t) \} = \frac{1}{s} \\
+Y(s) & = \mathscr{L}\{ y(t) \} = \mathscr{L}\{ \mathbf{1}(t-1) \} = \frac{1-s}{s^2} \\
+G(s) & = \frac{Y(s)}{U(s)} = \frac{\frac{1-s}{s^2}}{\frac{1}{s}} = \frac{1-s}{s^2} \cdot s = \frac{1-s}{s}
+\end{align*}
 
 
 %###################                 4.6.1              #################################%
@@ -280,7 +440,7 @@ $G(j\omega)=\frac{1}{j\omega+1}=\frac{1-j\omega}{1+\omega^2}=\boxed{\frac{1}{1+\
 	\end{figure}
 	\noindent Przeanalizować układ z rysunku i znaleźć równania opisujące ten układ. Za wyjście
 	przyjąć napięcie na oporniku. Znaleźć transmitancję operatorową i widmową układu\\
-	Zakladamy ze: $R=1000\Omega,C=1mF$\\
+	Zakładamy ze: $R=1000\Omega,C=1mF$\\
 }\lineh
 \\\\
 \noindent $\begin{cases}
