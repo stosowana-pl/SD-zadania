@@ -326,8 +326,80 @@ $\boxed{x'(t)=-\frac{x}{\frac{864}{2065}\cdot R\cdot C}}$\\
 $\boxed{\begin{aligned}\frac{dx}{dt}=-\frac{x}{RC}\\
 \ln |x|=-\frac{t}{RC}+k\\
 ke^{-\frac{t}{RC}}=x\end{aligned}}$\\
+	
+\pagebreak
+%###################                 1.7.2              #################################%
+\subsection*{Zadanie 1.7.2} 
+Przekształcenie trójkąt-gwiazda:
 
+\begin{wrapfigure}{l}{5.5cm}
+	\begin{tikzpicture}
+	\draw[transform shape,thick]
+	(0,0) to [european resistor,l={\tiny$R3$}](2,2) to [european resistor,l={\tiny$R2$}](0,4) to [european resistor,l={\tiny$R1$}](0,0);
+	\end{tikzpicture}
+	\begin{tikzpicture}
+	\draw[transform shape,thick]
+	(0,0) to [european resistor,l={\tiny$Z3$}](0,2) to [european resistor,l={\tiny$Z2$}](2,2) to [european resistor](0,2) to [european resistor,l={\tiny$Z1$}](0,4);
+	\end{tikzpicture}
+\end{wrapfigure}
+Dokonujemy przekształcenia jak na rysunku po lewej. Opory dla trzech oporników w gwieździe nie są równe oporom w trójkącie. Nowe opory są dane wzorem:
+\begin{equation}
+Z_{1} = \frac{R_{1} * R_{2}}{R_{1} + R_{2} + R_{3}}
+\end{equation}
+\begin{equation}
+Z_{2} = \frac{R_{2} * R_{3}}{R_{1} + R_{2} + R_{3}}
+\end{equation}
+\begin{equation}
+Z_{3} = \frac{R_{1} * R_{3}}{R_{1} + R_{2} + R_{3}}
+\end{equation}
+Wzory konstruujemy następująco: gdy rozpatrujemy opornik u góry (tutaj $Z_{1}$) w liczniku mnożymy przez siebie opory przyłączone do węzła u góry, analogicznie dla węzła z prawej i u dołu. W mianowniku suma oporów.
 
+\begin{figure}[!h]
+	\begin{tikzpicture}
+	\draw[transform shape,thick]
+	(0,-2) to [european resistor,l={\tiny$\frac{1}{2}R$}] (2,0) to [european resistor,l={\tiny$\frac{1}{3}R$}](0,2) to [european resistor,l={\tiny$\frac{1}{2}R$}](-2,0) to [european resistor,l={\tiny$\frac{1}{2}R$}](0,-2) to [european resistor,l={\tiny$\frac{1}{3}R$}](2,-4) to [european resistor,l={\tiny$R$}](4,-2) to [european resistor,l={\tiny$3R$}](2,0) to [european resistor,l={\tiny$\frac{1}{2}R$}](4,2) to [european resistor,l={\tiny$R$}](2,4) to [european resistor,l={\tiny$3R$}](0,2) to [european resistor,l={\tiny$3R$}](-2,4) to [european resistor, l={\tiny$R$}](-4,2) to [european resistor,l={\tiny$\frac{1}{3}R$}](-2,0) to [european resistor,l={\tiny$\frac{1}{3}R$}](-4,-2) to [european resistor,l={\tiny$R$}](-2,-4) to [C,l=C](2,-4) to (2,-4) to [european resistor](0,-2) to [european resistor,l={\tiny$3R$}](-2,-4);
+	
+	\fill[fill=black](-2,0) circle(3pt);
+	\fill[fill=black](2,0) circle(3pt);
+	\fill[fill=black](0,2) circle(3pt);
+	\fill[fill=black](0,-2) circle(3pt);
+	\fill[fill=black](-2,-4) circle(3pt);
+	\fill[fill=black](2,-4) circle(3pt);
+	
+	\draw[transform shape,thick]
+	(5,0) to  [C,l=C]  (9,0) to [european resistor,l={\tiny$R$}](9,4)
+	to [european resistor,l={\tiny$R$}](7,2) to [european resistor,l={\tiny$R$}](5,0) to [european resistor,l={\tiny$R$}](5,4) to [european resistor,l={\tiny$R$}](7,2) to [european resistor,l={\tiny$R$}](9,0) to [european resistor](9,4) to [european resistor,l={\tiny$R$}](5,4);
+	
+	\draw[transform shape,thick]
+	(10,0) to  [C,l=C]  (14,0) to [european resistor,l={\tiny$R$}](14,2) to [european resistor,l={\tiny$R$}](14,4) to [european resistor,l={\tiny$R$}](10,4) to [european resistor,l={\tiny$R$}](10,2) to [european resistor,l={\tiny$R$}](12,2) to [european resistor,l={\tiny$R$}](14,2) to [european resistor](12,2)
+	to [european resistor](10,2) to [european resistor,l={\tiny$R$}](10,0);
+	
+	\draw[transform shape,thick]
+	(5,-4) to  [C,l=C]  (9,-4) to [european resistor,l={\tiny$R$}](9,-2) to (9,-1) to [european resistor,l={\tiny$R$}](5,-1) to (5,-2) to [european resistor,l={\tiny$R$}](9,-2) to [european resistor](5,-2) to [european resistor,l={\tiny$R$}](5,-4);
+	
+	\draw[transform shape,thick]
+	(10,-4) to  [C,l=C]  (14,-4) to (14,-2) to [european resistor,l={\tiny$R_{z}$}](10,-2) to (10,-4);
+	\end{tikzpicture}
+\end{figure}
+\begin{equation}
+u(t) - u_{R} - u_{C} = 0 
+\end{equation}
+\begin{equation*}
+u(t) = RC\dot{x}(t)+x(t) 
+\end{equation*}
+\begin{equation}
+\dot{x}(t) = -\frac{1}{RC}x(t) + \frac{1}{RC}u(t)
+\end{equation}
+\begin{equation*}
+u(t)=0
+\end{equation*}
+\begin{equation}
+\dot{x}(t) = -\frac{1}{RC}x(t)
+\end{equation}
+
+Do równania wstawiamy wyliczone $R_{z}$ i dane $C$, otrzymujemy model układu RC. \\
+Dostaliśmy to zadanie na drugim terminie egzaminu, jest kilka wersji rozkładu oporów, w naszej do pewnego momentu przewijało się $\frac{?}{29}$, aż pod koniec robił się z tego bardzo nieprzyjemny ułamek, Ci co dobrnęli do końca zostawili go w niewyliczonej postaci, ponieważ nie można było używać kalkulatora. 	
+	
 \pagebreak
 %###################                 1.8.1              #################################%
 \subsection*{Zadanie 1.8.1} {\color{darkgray}
